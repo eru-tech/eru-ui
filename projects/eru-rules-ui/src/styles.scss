@@ -110,11 +110,11 @@ $coral-red-palette: (
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$eru-rules-ui-primary: mat.define-palette(mat.$linen-palette, 500);
-$eru-rules-ui-accent: mat.define-palette(mat.$red-orange-palette, 500);
+$eru-rules-ui-primary: mat.define-palette($linen-palette, 500);
+$eru-rules-ui-accent: mat.define-palette($red-orange-palette, 500);
 
 // The warn palette is optional (defaults to red).
-$eru-rules-ui-warn: mat.define-palette(mat.$coral-red-palette, 500);
+$eru-rules-ui-warn: mat.define-palette($coral-red-palette, 500);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
