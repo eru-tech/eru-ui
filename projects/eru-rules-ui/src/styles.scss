@@ -8,15 +8,113 @@
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
 @include mat.core();
+/* For use in src/lib/core/theming/_palette.scss */
+$red-orange-palette: (
+    50 : #ffe7e4,
+    100 : #ffc2bb,
+    200 : #ff9a8e,
+    300 : #ff7161,
+    400 : #ff523f,
+    500 : #ff341d,
+    600 : #ff2f1a,
+    700 : #ff2715,
+    800 : #ff2111,
+    900 : #ff150a,
+    A100 : #ffffff,
+    A200 : #fff5f5,
+    A400 : #ffc4c2,
+    A700 : #ffaba8,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
 
+$linen-palette: (
+    50 : #fffdfc,
+    100 : #fefaf7,
+    200 : #fdf6f1,
+    300 : #fcf2eb,
+    400 : #fcf0e7,
+    500 : #fbede3,
+    600 : #faebe0,
+    700 : #fae8dc,
+    800 : #f9e5d8,
+    900 : #f8e0d0,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #ffffff,
+    A700 : #ffffff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$coral-red-palette: (
+    50 : #ffe8e8,
+    100 : #ffc6c6,
+    200 : #ffa0a0,
+    300 : #ff7979,
+    400 : #ff5d5d,
+    500 : #ff4040,
+    600 : #ff3a3a,
+    700 : #ff3232,
+    800 : #ff2a2a,
+    900 : #ff1c1c,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #ffcdcd,
+    A700 : #ffb3b3,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$eru-rules-ui-primary: mat.define-palette(mat.$indigo-palette);
-$eru-rules-ui-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$eru-rules-ui-primary: mat.define-palette(mat.$linen-palette, 500);
+$eru-rules-ui-accent: mat.define-palette(mat.$red-orange-palette, 500);
 
 // The warn palette is optional (defaults to red).
-$eru-rules-ui-warn: mat.define-palette(mat.$red-palette);
+$eru-rules-ui-warn: mat.define-palette(mat.$coral-red-palette, 500);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
@@ -36,7 +134,16 @@ $eru-rules-ui-theme: mat.define-light-theme((
 /* You can add global styles to this file, and also import other style files */
 
 /* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+
+//Bootstap Theming
+$theme-colors: (
+  "primary": $eru-rules-ui-accent,
+  "secondary": $eru-rules-ui-primary,
+  "danger": $eru-rules-ui-warn
+);
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
