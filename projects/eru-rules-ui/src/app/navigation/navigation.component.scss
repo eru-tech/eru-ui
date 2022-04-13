@@ -1,17 +1,202 @@
-.sidenav-container {
-  height: 100%;
-}
-
 .sidenav {
-  width: 200px;
-}
-
-.sidenav .mat-toolbar {
-  background: inherit;
-}
-
-.mat-toolbar.mat-primary {
-  position: sticky;
+  background-color: #ffffff;
+  width: 106.67px;
+  position: fixed;
+  height: 100%;
+  box-shadow: 0px 10px 13px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  z-index: 999999;
   top: 0;
-  z-index: 1;
+  transition: width 0.3s;
+  box-sizing: border-box;
+  border-radius: 20px;
+
+  &.expand:hover {
+    z-index: 99999;
+    width: 320px;
+    text-align: left;
+    box-sizing: border-box;
+    // logo stars here
+    .sidenav-header {
+      .logo {
+        display: flex;
+        margin-top: 100px;
+        margin-bottom: 112px;
+        justify-content: center;
+        align-items: center;
+        max-height: max-content;
+        mat-icon {
+          height: 50px;
+          width: 62px;
+        }
+        .brand-name {
+          display: block;
+          font-size: 48px;
+          font-weight: 600;
+          font-family: "Poppins", sans-serif;
+          margin-left: 6px;
+          > .suffix {
+            font-weight: 300;
+          }
+        }
+      }
+    }
+    .sidenav-body {
+      .nav-item {
+        .nav-link {
+          display: block;
+        }
+      }
+    }
+    .sidenav-footer {
+      .footer-nav {
+        .nav-item {
+          .nav-link {
+            display: block;
+          }
+        }
+      }
+      .user-detail{
+        display: block;
+      }
+    }
+  }
+  &-header {
+    .logo {
+      box-sizing: border-box;
+      margin-top: 53px;
+      margin-bottom: 176px;
+      display: flex;
+      justify-content: center;
+      mat-icon {
+        height: 33px;
+        width: 37px;
+      }
+      .brand-name {
+        display: none;
+      }
+    }
+  }
+  &-body {
+    box-sizing: border-box;
+    justify-content: center;
+    > .nav {
+      margin: 0px 28px;
+      :last-child {
+        margin-bottom: 0px;
+      }
+      .nav-item {
+        display: inline-flex;
+        padding: 13px 16px;
+        align-items: center;
+        margin-bottom: 15px;
+        > mat-icon {
+          height: 24px;
+          width: 24px;
+          color: #bcbcbc;
+        }
+        > .nav-link {
+          display: none;
+          color: #707070;
+        }
+        &:hover,
+        &.selected {
+          background-color: #fbede3;
+          border-radius: 30px;
+          > mat-icon {
+            color: #ff341d;
+          }
+          > .nav-link {
+            color: #ff341d;
+          }
+        }
+      }
+    }
+  }
+  &-footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    box-sizing: border-box;
+    justify-content: center;
+    > .footer-nav {
+      > .nav {
+        margin: 0px 28px;
+        :last-child {
+          margin-bottom: 0px !important;
+        }
+        .nav-item {
+          display: inline-flex;
+          padding: 13px 16px;
+          align-items: center;
+          margin-bottom: 15px;
+          > mat-icon {
+            height: 24px;
+            width: 24px;
+            color: #bcbcbc;
+          }
+          > .nav-link {
+            display: none;
+            color: #707070;
+          }
+          &:hover,
+          &.selected {
+            background-color: #fbede3;
+            border-radius: 30px;
+            > mat-icon {
+              color: #ff341d;
+            }
+            > .nav-link {
+              color: #ff341d;
+            }
+          }
+        }
+      }
+    }
+    > .divider {
+      margin-top: 25px;
+      border-bottom: 1px solid #d8d8d8;
+    }
+    > .user-info {
+      padding: 32px 0px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      > .user-icon {
+        text-align: center;
+        vertical-align: middle;
+        padding: 16px;
+        background-color: #fbede3;
+        color: #ff341d;
+        border-radius: 30px;
+        font-weight: 500;
+      }
+      > .user-detail {
+        display: none;
+        margin-left: 16px;
+        > .user-name {
+          margin-bottom: 0px;
+          font-size: 16px;
+          font-weight: 400;
+          color: #707070;
+        }
+        > .user-role {
+          margin-bottom: 0px;
+          font-size: 12px;
+          font-weight: 400;
+          color: #707070;
+        }
+      }
+    }
+  }
+}
+
+.mat-icon.logo-small {
+  height: 33px;
+  width: 37px;
+}
+
+.mat-icon.logo-big {
+  height: 50px;
+  width: 62px;
 }
