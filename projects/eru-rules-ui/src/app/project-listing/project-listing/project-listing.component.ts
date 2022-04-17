@@ -12,6 +12,7 @@ import { State } from "./../../store/index";
 import { Project } from "../models/project.model";
 import { SubSink } from "../../library/subsink";
 import {
+  DeleteProject,
   GetProjectDetail,
   GetProjectList,
 } from "../store/actions/project-listing.actions";
@@ -20,6 +21,8 @@ import {
   selectProjectList,
 } from "../store/selectors/project-listing.selectors";
 import { DMNs, Model } from "../../models/model.model";
+import { MatDialog, MatDialogRef } from "@angular/material/dialog";
+import { DeleteDailogComponent } from "../../library/delete-dailog/delete-dailog.component";
 
 @Component({
   selector: "app-project-listing",
@@ -47,7 +50,7 @@ export class ProjectListingComponent
   @ViewChild(MatSort) sort: MatSort | undefined;
   data: Project[] = [];
   projectData: Model[] | undefined;
-  constructor(private store: Store<State>) {}
+  constructor(private store: Store<State>, public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.store.dispatch(new GetProjectList());
@@ -72,7 +75,7 @@ export class ProjectListingComponent
           );
           if (model && model.DMNs.length > 0) {
             this.currentDMNList = model.DMNs;
-          }else{
+          } else {
             this.currentDMNList = [];
             this.currentIndex = undefined;
           }
@@ -102,13 +105,22 @@ export class ProjectListingComponent
       );
       if (i > -1 && this.projectData[i].DMNs.length > 0) {
         this.currentDMNList = this.projectData[i].DMNs;
-      } else if(i > -1 && this.projectData[i].DMNs.length === 0){
+      } else if (i > -1 && this.projectData[i].DMNs.length === 0) {
         this.currentDMNList = [];
-        this.currentIndex = undefined
-      } else{
+        this.currentIndex = undefined;
+      } else {
         this.showLoader = true;
         this.store.dispatch(new GetProjectDetail(projectName));
       }
     }
+  }
+
+  delete(projectName : string) {
+    const dailogRef =this.dialog.open(DeleteDailogComponent, {width: '672px'});
+    dailogRef.afterClosed().subscribe(result => {
+      if(result){
+        this.store.dispatch(new DeleteProject(projectName));
+      }
+    });
   }
 }

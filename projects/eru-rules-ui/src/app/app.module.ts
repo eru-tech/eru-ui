@@ -1,23 +1,25 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
 import { HttpClientModule } from "@angular/common/http";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { StoreModule } from "@ngrx/store";
+import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+import { EffectsModule } from "@ngrx/effects";
+import { MatIconModule } from "@angular/material/icon";
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from "@angular/material/button";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { StoreModule } from '@ngrx/store';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { environment } from '../environments/environment';
-import { EffectsModule } from '@ngrx/effects';
-import { MatIconModule } from '@angular/material/icon'
-import { NavigationComponent } from './navigation/navigation.component';
+
+import { environment } from "../environments/environment";
+
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { NavigationComponent } from "./navigation/navigation.component";
+import { DeleteDailogComponent } from "./library/delete-dailog/delete-dailog.component";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavigationComponent
-  ],
+  declarations: [AppComponent, NavigationComponent, DeleteDailogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -25,11 +27,16 @@ import { NavigationComponent } from './navigation/navigation.component';
     NgbModule,
     BrowserAnimationsModule,
     StoreModule.forRoot({}),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
+    }),
     EffectsModule.forRoot([]),
     MatIconModule,
+    MatDialogModule,
+    MatButtonModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

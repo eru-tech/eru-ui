@@ -37,7 +37,7 @@ export class ProjectListingService {
     //     }
     //   ],
     // });
-    return this.http.get(environment.base_eru_rules_url + 'store/project/list')
+    return this.http.get(environment.base_eru_rules_url + "store/project/list");
   }
 
   getProjectDetail(projectName: string) {
@@ -60,6 +60,12 @@ export class ProjectListingService {
     // });
     return this.http.get(
       environment.base_eru_rules_url + `store/${projectName}/config`
+    );
+  }
+
+  deleteProject(projectName: string) {
+    return this.http.delete(
+      environment.base_eru_rules_url + `store/${projectName}/remove`
     );
   }
 }

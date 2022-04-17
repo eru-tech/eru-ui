@@ -58,7 +58,22 @@ export class CreateProjectSuccess implements Action {
 }
 
 export class CreateProjectError implements Action {
-  public readonly type = ProjectListActionType.CreateProjectError;
+  public readonly type = ProjectListActionType.DeleteProjectError;
+  constructor(public payload : any) {}
+}
+
+export class DeleteProject implements Action {
+  public readonly type = ProjectListActionType.DeleteProject;
+  constructor(public payload: string) {}
+}
+
+export class DeleteProjectSuccess implements Action {
+  public readonly type = ProjectListActionType.DeleteProjectSuccess;
+  constructor(public payload: string) {}
+}
+
+export class DeleteProjectError implements Action {
+  public readonly type = ProjectListActionType.DeleteProjectError;
   constructor(public payload : any) {}
 }
 
@@ -68,4 +83,10 @@ export type ProjectListingActions =
   | GetProjectListError
   | GetProjectDetail
   | GetProjectDetailSuccess
-  | GetProjectDetailError;
+  | GetProjectDetailError
+  | CreateProject
+  | CreateProjectSuccess
+  | CreateProjectError
+  | DeleteProject
+  | DeleteProjectSuccess
+  | DeleteProjectError;

@@ -71,6 +71,17 @@ export function ProjectListingReducers(
         projectDetail: projectDetail,
       };
     }
+    case ProjectListActionType.DeleteProjectSuccess: {
+      let projectListing = state.projectListing.slice();
+      let projectDetail = state.projectDetail.slice();
+      const listIndex = projectListing.findIndex(project => project.projectName === action.payload);
+      const detailIndex = projectDetail.findIndex(project => project.ProjectId === action.payload)
+      return {
+        ...state,
+        projectListing : projectListing.splice(listIndex, 1),
+        projectDetail : projectDetail.splice(detailIndex, 1),
+      }
+    }
     default: {
       return state;
     }

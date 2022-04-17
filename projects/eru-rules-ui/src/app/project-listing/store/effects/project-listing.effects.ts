@@ -48,4 +48,23 @@ export class ProjectListingEffects {
       })
     );
   });
+
+  deleteProject$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(ProjectListingActions.ProjectListActionType.DeleteProject),
+      mergeMap((action: ProjectListingActions.DeleteProject) => {
+        this.projectLisitngService.showLoader(true);
+        return this.projectLisitngService.deleteProject(action.payload).pipe(
+          map((res: any) => {
+            this.projectLisitngService.showLoader(false);
+            return new ProjectListingActions.DeleteProjectSuccess(action.payload);
+          }),
+          catchError((err) => {
+            this.projectLisitngService.showLoader(false);
+            return of(new ProjectListingActions.DeleteProjectError(err));
+          })
+        );
+      })
+    );
+  });
 }

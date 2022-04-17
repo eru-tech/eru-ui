@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Are you sure you want to delete ?</h1>
+<div mat-dialog-content>
+  <img src="./../../../assets/delete-illustration.png" />
+</div>
+<div mat-dialog-actions>
+  <button mat-stroked-button (click)="onClose()" color="accent">No</button>
+  <button mat-raised-button color="warn" [mat-dialog-close]="true" cdkFocusInitial>Yes</button>
+</div>
