@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  base_eru_rules_url: 'http://dev-api.erutech.io:8084/'
 };
 
 /*

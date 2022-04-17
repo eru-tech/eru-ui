@@ -1,0 +1,60 @@
+<div class="header">
+  <div class="search-box">
+    <mat-form-field appearance="outline">
+      <mat-icon matPrefix svgIcon="eru-search"></mat-icon>
+      <input type="string" matInput placeholder="Quick Search" />
+    </mat-form-field>
+  </div>
+  <button class="import-button" mat-raised-button color="accent">Import Project</button>
+</div>
+<div class="content">
+  <p class="heading">My Projects</p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Project Name</th>
+        <th scope="col">Owned By</th>
+        <th scope="col">Last Edited</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let project of data; index as i">
+        <tr [ngClass]="{'selected' : this.currentIndex === i}">
+          <td (click)="getModels(project.projectName, i)">
+            <div class="project-name">
+                <mat-spinner *ngIf="this.currentIndex === i && this.showLoader" color="accent" strokeWidth="2" diameter="25">
+                </mat-spinner>
+                <span>{{ project.projectName }}</span>
+            </div>
+          </td>
+          <td>
+            <div class="user-icon">{{ project.createdBy | initials }}</div>
+          </td>
+          <td>{{ project.lastUpdateDate | date: "short" }}</td>
+          <td>
+            <div class="actions">
+              <mat-icon svgIcon="eru-edit"></mat-icon>
+              <mat-icon svgIcon="eru-export"></mat-icon>
+              <mat-icon svgIcon="eru-download"></mat-icon>
+              <mat-icon class="stroked" svgIcon="eru-copy"></mat-icon>
+              <mat-icon svgIcon="eru-share"></mat-icon>
+              <mat-icon class="stroked" svgIcon="eru-delete"></mat-icon>
+            </div>
+          </td>
+        </tr>
+        <ng-container *ngIf="!this.showLoader && this.currentIndex === i && this.currentDMNList.length > 0">
+            <tr *ngFor="let item of this.currentDMNList">
+                <td><mat-icon svgIcon="eru-enter" class="sub-project"></mat-icon>{{item.dmnName}}</td>
+                <td><div class="user-icon">{{ item.createdBy | initials }}</div></td>
+                <td>{{item.lastUpdateDate | date: "short"}}</td>
+                <td></td>
+            </tr>
+        </ng-container>
+      </ng-container>
+    </tbody>
+  </table>
+  <button class="add-project" mat-fab color="accent">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

@@ -1,0 +1,183 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  background: #fbede3;
+  border-radius: 15px;
+  color: transparent;
+}
+
+:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
+  padding-left: 22px;
+}
+
+::placeholder {
+  color: #424242;
+  opacity: 1;
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 26px;
+}
+
+.search-box {
+  mat-form-field {
+    width: 836px;
+    mat-icon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+.import-button {
+  color: white;
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  width: 373px;
+  height: 64px;
+}
+
+.content {
+  margin: 36px 0px;
+}
+
+.heading {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 34px;
+  line-height: 40px;
+  letter-spacing: 0.25px;
+  color: #424242;
+  margin-bottom: 50px;
+}
+
+.table {
+  margin-top: 57px;
+}
+
+.eru-table {
+  width: 100%;
+}
+
+.user-icon {
+  background-color: #fbede3;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 20px;
+  border-radius: 30px;
+  color: #ff341d;
+}
+
+.table {
+  width: 100%;
+  color: transparent;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+  > thead {
+    > tr {
+      padding-top: 3px;
+      padding-bottom: 3px;
+      > :first-child {
+        padding-left: 35px;
+      }
+      > :last-child {
+        padding-right: 35px;
+      }
+      > th {
+        border-bottom: none !important;
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 23px;
+        color: #000000;
+      }
+    }
+  }
+  > tbody {
+    > tr {
+      padding-top: 3px;
+      padding-bottom: 3px;
+      > :first-child {
+        padding-left: 35px;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+      }
+      > :last-child {
+        padding-right: 35px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+      > td {
+        border: none;
+        font-family: "Poppins";
+        font-weight: 400;
+        font-size: 18px;
+        color: #424242;
+        vertical-align: middle;
+        background: #f8f8f8;
+      }
+    }
+    > tr:hover > td,
+    > tr.selected > td {
+      background: #fbede3;
+      mat-icon {
+        cursor: pointer;
+        color: #424242;
+        &.stroked{
+          stroke: #424242;
+        }
+        &:hover{
+          color: #ff341d;
+        }
+        &.stroked:hover{
+          stroke: #ff341d;
+        }
+      }
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  > mat-icon {
+    color: transparent;
+    stroke: transparent;
+  }
+}
+
+td {
+  mat-spinner {
+    margin-right: 16px;
+  }
+}
+
+.project-name {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.sub-project {
+  margin-left: 30px;
+  margin-right: 14px;
+}
+
+.add-project{
+  z-index: 999999;
+  position: absolute;
+  bottom: 76px;
+  right: 40px;
+}

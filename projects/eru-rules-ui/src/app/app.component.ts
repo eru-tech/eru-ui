@@ -20,6 +20,13 @@ export class AppComponent {
     .addSvgIcon("eru-deploy", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/eru-deploy.svg"))
     .addSvgIcon("eru-support", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/eru-support.svg"))
     .addSvgIcon("eru-settings", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/eru-settings.svg"))
-    .addSvgIcon("eru-search", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/eru-search.svg"));
+    .addSvgIcon("eru-search", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/eru-search.svg"))
+    .addSvgIcon("eru-edit", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/eru-edit.svg"))
+    .addSvgIcon("eru-export", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/eru-export.svg"))
+    .addSvgIcon("eru-download", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/eru-download.svg"))
+    .addSvgIcon("eru-copy", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/eru-copy.svg"))
+    .addSvgIcon("eru-share", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/eru-share.svg"))
+    .addSvgIcon("eru-delete", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/eru-delete.svg"))
+    .addSvgIcon("eru-enter", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/eru-enter.svg"));
   }
 }
