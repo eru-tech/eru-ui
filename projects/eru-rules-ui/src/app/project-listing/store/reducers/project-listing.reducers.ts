@@ -17,55 +17,55 @@ export function ProjectListingReducers(
       };
     }
     case ProjectListActionType.GetProjectDetailSuccess: {
-      const projectDetail = state.projectDetail.slice();
-      projectDetail.push(action.payload);
-      // const projectDetail : Model[]  = [
-      //   {
-      //     ProjectId: "MyProject",
-      //     DMNs: [
-      //       {
-      //         dmnName: "Model 1",
-      //         createdBy: "user 1",
-      //         lastUpdateDate: "2022-04-16T13:44:40.036158495Z",
-      //       },
-      //       {
-      //         dmnName: "Model 2",
-      //         createdBy: "user 1",
-      //         lastUpdateDate: "2022-04-16T13:44:40.036158495Z",
-      //       }
-      //     ],
-      //   },
-      //   {
-      //     ProjectId: "MyProject1",
-      //     DMNs: [
-      //       {
-      //         dmnName: "Model 3",
-      //         createdBy: "user 1",
-      //         lastUpdateDate: "2022-04-16T13:44:40.036158495Z",
-      //       },
-      //       {
-      //         dmnName: "Model 4",
-      //         createdBy: "user 1",
-      //         lastUpdateDate: "2022-04-16T13:44:40.036158495Z",
-      //       }
-      //     ],
-      //   },
-      //   {
-      //     ProjectId: "MyProject2",
-      //     DMNs: [
-      //       {
-      //         dmnName: "Model 5",
-      //         createdBy: "user 1",
-      //         lastUpdateDate: "2022-04-16T13:44:40.036158495Z",
-      //       },
-      //       {
-      //         dmnName: "Model 6",
-      //         createdBy: "user 1",
-      //         lastUpdateDate: "2022-04-16T13:44:40.036158495Z",
-      //       }
-      //     ],
-      //   }
-      // ];
+      // const projectDetail = state.projectDetail.slice();
+      // projectDetail.push(action.payload);
+      const projectDetail : Model[]  = [
+        {
+          ProjectId: "MyProject",
+          DMNs: [
+            {
+              dmnName: "Model 1",
+              createdBy: "user 1",
+              lastUpdateDate: "2022-04-16T13:44:40.036158495Z",
+            },
+            {
+              dmnName: "Model 2",
+              createdBy: "user 1",
+              lastUpdateDate: "2022-04-16T13:44:40.036158495Z",
+            }
+          ],
+        },
+        {
+          ProjectId: "MyProject1",
+          DMNs: [
+            {
+              dmnName: "Model 3",
+              createdBy: "user 1",
+              lastUpdateDate: "2022-04-16T13:44:40.036158495Z",
+            },
+            {
+              dmnName: "Model 4",
+              createdBy: "user 1",
+              lastUpdateDate: "2022-04-16T13:44:40.036158495Z",
+            }
+          ],
+        },
+        {
+          ProjectId: "MyProject2",
+          DMNs: [
+            {
+              dmnName: "Model 5",
+              createdBy: "user 1",
+              lastUpdateDate: "2022-04-16T13:44:40.036158495Z",
+            },
+            {
+              dmnName: "Model 6",
+              createdBy: "user 1",
+              lastUpdateDate: "2022-04-16T13:44:40.036158495Z",
+            }
+          ],
+        }
+      ];
       return {
         ...state,
         projectDetail: projectDetail,
