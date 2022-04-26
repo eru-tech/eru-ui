@@ -1,0 +1,28 @@
+.tabs {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  z-index: 9999;
+  > .tab {
+    padding: 1em 4em;
+    text-align: center;
+    vertical-align: center;
+    background: #fbede3;
+    font-family: "Poppins";
+    font-weight: 500;
+    font-size: 22px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin-right: 5px;
+    cursor: pointer;
+    &:hover,&.selected{
+      background: #ffccbc;
+    }
+    &.add {
+      padding: 1em 1.5em;
+    }
+  }
+  .tab:last-child {
+    margin-right: 0px;
+  }
+}

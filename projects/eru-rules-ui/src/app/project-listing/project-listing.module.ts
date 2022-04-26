@@ -1,5 +1,4 @@
 import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatTableModule } from "@angular/material/table";
 import { MatButtonModule } from "@angular/material/button";
@@ -17,15 +16,13 @@ import { StoreModule } from "@ngrx/store";
 
 import { ProjectListingEffects } from "./store/effects/project-listing.effects";
 import { projectListingReducer } from "./store/reducers/index";
-import { InitialsPipe } from "../library/pipes/initials.pipe";
+import { SharedModule } from "../shared/shared.module";
 
 @NgModule({
   declarations: [
     ProjectListingComponent,
-    InitialsPipe,
   ],
   imports: [
-    CommonModule,
     ProjectListingRoutingModule,
     FormsModule,
     HttpClientModule,
@@ -39,6 +36,7 @@ import { InitialsPipe } from "../library/pipes/initials.pipe";
     MatProgressSpinnerModule,
     EffectsModule.forFeature([ProjectListingEffects]),
     StoreModule.forFeature("projectListingModule", projectListingReducer),
+    SharedModule
   ],
 })
 export class ProjectListingModule {}

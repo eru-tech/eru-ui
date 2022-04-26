@@ -4,6 +4,7 @@ export interface DMNs{
     dmnName : string
     createdBy: string,
     lastUpdateDate: string;
+    version: number;
 }
 export interface Model{
     ProjectId: string,

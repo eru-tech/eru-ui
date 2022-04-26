@@ -10,7 +10,7 @@ import { select, Store } from "@ngrx/store";
 
 import { State } from "./../../store/index";
 import { Project } from "../models/project.model";
-import { SubSink } from "../../library/subsink";
+import { SubSink } from "../../shared/subsink";
 import {
   DeleteProject,
   GetProjectDetail,
@@ -21,8 +21,8 @@ import {
   selectProjectList,
 } from "../store/selectors/project-listing.selectors";
 import { DMNs, Model } from "../../models/model.model";
-import { MatDialog, MatDialogRef } from "@angular/material/dialog";
-import { DeleteDailogComponent } from "../../library/delete-dailog/delete-dailog.component";
+import { MatDialog } from "@angular/material/dialog";
+import { DeleteDailogComponent } from "../../shared/delete-dailog/delete-dailog.component";
 
 @Component({
   selector: "app-project-listing",

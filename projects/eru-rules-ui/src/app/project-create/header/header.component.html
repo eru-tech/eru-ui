@@ -1,0 +1,18 @@
+<div class="header">
+  <div *ngIf="selectedModel" class="info">
+    <app-inline-input [(data)]="selectedModel.dmnName"></app-inline-input>
+    <p>
+      <label class="label">Version :</label>
+      <select class="value" [(ngModel)]="selectedModel.version">
+        <option>Select a version</option>
+        <option *ngFor="let version of versions" [value]="version">
+          {{ version }}
+        </option>
+      </select>
+      <span class="value"><span class="label"> Last Edited</span> :
+        {{ selectedModel.lastUpdateDate | date: "d MMM y, h:mm a" }}</span
+      >
+    </p>
+  </div>
+  <button mat-raised-button color="accent">SHARE</button>
+</div>

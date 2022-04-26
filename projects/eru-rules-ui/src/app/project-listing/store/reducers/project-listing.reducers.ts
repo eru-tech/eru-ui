@@ -27,11 +27,13 @@ export function ProjectListingReducers(
               dmnName: "Model 1",
               createdBy: "user 1",
               lastUpdateDate: "2022-04-16T13:44:40.036158495Z",
+              version: 2.1
             },
             {
               dmnName: "Model 2",
               createdBy: "user 1",
               lastUpdateDate: "2022-04-16T13:44:40.036158495Z",
+              version: 3
             }
           ],
         },
@@ -42,11 +44,13 @@ export function ProjectListingReducers(
               dmnName: "Model 3",
               createdBy: "user 1",
               lastUpdateDate: "2022-04-16T13:44:40.036158495Z",
+              version: 1.1
             },
             {
               dmnName: "Model 4",
               createdBy: "user 1",
               lastUpdateDate: "2022-04-16T13:44:40.036158495Z",
+              version: 1.2,
             }
           ],
         },
@@ -57,11 +61,13 @@ export function ProjectListingReducers(
               dmnName: "Model 5",
               createdBy: "user 1",
               lastUpdateDate: "2022-04-16T13:44:40.036158495Z",
+              version: 1.3
             },
             {
               dmnName: "Model 6",
               createdBy: "user 1",
               lastUpdateDate: "2022-04-16T13:44:40.036158495Z",
+              version: 2,
             }
           ],
         }

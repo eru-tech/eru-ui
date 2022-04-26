@@ -7,34 +7,33 @@ import { StoreModule } from "@ngrx/store";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { EffectsModule } from "@ngrx/effects";
 import { MatIconModule } from "@angular/material/icon";
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatButtonModule } from "@angular/material/button";
-
 
 import { environment } from "../environments/environment";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { NavigationComponent } from "./navigation/navigation.component";
-import { DeleteDailogComponent } from "./library/delete-dailog/delete-dailog.component";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
-  declarations: [AppComponent, NavigationComponent, DeleteDailogComponent],
+  declarations: [
+    AppComponent,
+    NavigationComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
     BrowserAnimationsModule,
+    FormsModule,
     StoreModule.forRoot({}),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
     }),
     EffectsModule.forRoot([]),
-    MatIconModule,
-    MatDialogModule,
-    MatButtonModule
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent],

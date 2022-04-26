@@ -27,6 +27,12 @@ export class AppComponent {
     .addSvgIcon("eru-copy", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/eru-copy.svg"))
     .addSvgIcon("eru-share", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/eru-share.svg"))
     .addSvgIcon("eru-delete", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/eru-delete.svg"))
-    .addSvgIcon("eru-enter", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/eru-enter.svg"));
+    .addSvgIcon("eru-enter", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/eru-enter.svg"))
+    .addSvgIcon("eru-dmn-input", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/eru-dmn-input.svg"))
+    .addSvgIcon("eru-dmn-knowledge", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/eru-dmn-knowledge.svg"))
+    .addSvgIcon("eru-dmn-knowledge-model", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/eru-dmn-knowledge-model.svg"))
+    .addSvgIcon("eru-dmn-decision", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/eru-dmn-decision.svg"))
+    .addSvgIcon("eru-dmn-text", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/eru-dmn-text.svg"))
+    .addSvgIcon("eru-dmn-service", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/eru-dmn-service.svg"))
   }
 }

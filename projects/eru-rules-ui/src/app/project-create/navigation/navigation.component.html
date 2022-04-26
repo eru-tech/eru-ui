@@ -1,0 +1,10 @@
+<div class="tabs">
+  <div
+    class="tab"
+    [ngClass]="{ selected: this.selectedTab === project.dmnName }"
+    *ngFor="let project of projects?.DMNs; index as i"
+    (click)="tabChange(project.dmnName, i)">
+    {{ project.dmnName }}
+  </div>
+  <div class="tab add"><mat-icon>add</mat-icon></div>
+</div>

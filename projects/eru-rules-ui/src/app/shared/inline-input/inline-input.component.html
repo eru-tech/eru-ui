@@ -1,0 +1,3 @@
+<div *ngIf="!editMode" (click)="inputToggle()" class="text">{{ data}}</div>
+<input *ngIf="editMode" (focusout)="onFocusOut()" (keydown.enter)="blur($event)" [(ngModel)]="data" class="cellInput"
+  appAutofocus type="text" (focusout)="inputToggle()">

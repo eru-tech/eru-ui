@@ -1,0 +1,30 @@
+:host ::ng-deep .mat-tab-labels {
+  .mat-tab-label {
+    padding: 0px;
+    justify-content: flex-start;
+    min-width: max-content;
+    margin-right: 2rem;
+    > .mat-tab-label-content {
+      font-family: "Poppins";
+      font-weight: 500;
+      font-size: 18px;
+      color: #424242;
+    }
+  }
+  .mat-tab-label:last-child {
+    margin-right: 0rem;
+  }
+  .mat-tab-label-active {
+    > .mat-tab-label-content {
+      color: #ff341d;
+    }
+  }
+}
+
+:host ::ng-deep .mat-tab-body-wrapper {
+  margin-top: 1.125rem;
+}
+
+:host ::ng-deep .cdk-global-overlay-wrapper{
+  justify-content: flex-end !important;
+}
