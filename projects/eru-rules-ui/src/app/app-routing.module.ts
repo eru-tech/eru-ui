@@ -13,6 +13,10 @@ const routes: Routes = [
   {
     path: 'create', 
     loadChildren: () => import('./project-create/project-create.module').then(m => m.ProjectCreateModule)
+  },
+  {
+    path: 'data-type', 
+    loadChildren: () => import('./project-model/project-model.module').then(m => m.ProjectModelModule)
   }
 ];
 

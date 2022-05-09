@@ -1,0 +1,51 @@
+.add-data-model {
+  z-index: 999999;
+  position: absolute;
+  bottom: 76px;
+  right: 40px;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate !important;
+  border-spacing: 0;
+  > tbody {
+      height: 100%;
+    > tr {
+      td {
+        border-bottom: 3px solid #e0e0e0;
+        height: 5.125em;
+      }
+      > td:first-child {
+        border-left: 3px solid #e0e0e0;
+      }
+      > td:last-child {
+        padding-right: 3em;
+        border-right: 3px solid #e0e0e0;
+      }
+    }
+    > tr:first-child {
+      >td{
+        border-top: 3px solid #e0e0e0;
+      }
+      > td:first-child {
+        border-top-left-radius: 15px !important;
+      }
+      > td:last-child {
+        border-top-right-radius: 15px !important;
+      }
+    }
+    > tr:last-child {
+      > td:first-child {
+         border-bottom-left-radius: 15px !important;
+      }
+      > td:last-child {
+         border-bottom-right-radius: 15px !important;
+      }
+    }
+  }
+}
+
+mat-icon{
+  cursor: pointer;
+}

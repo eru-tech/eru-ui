@@ -1,0 +1,29 @@
+.table-text {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 20px;
+}
+
+:host ::ng-deep .mat-input-element,
+:host ::ng-deep .mat-select-value  {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.table-cell{
+  display: flex;
+  align-items: center;
+}
+
+.drop-icon{
+  cursor: pointer;
+  display: inline-block;
+  transform: rotate(270deg);
+  margin-right: 1.125em;
+  margin-left: -3em;
+}
+
+.rotate{
+  transform: rotate(0deg);
+}

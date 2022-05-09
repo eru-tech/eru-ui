@@ -1,3 +1,4 @@
+import { DataType } from "./data-type.model";
 import { User } from "./user.model";
 
 export interface DMNs{
@@ -9,4 +10,5 @@ export interface DMNs{
 export interface Model{
     ProjectId: string,
     DMNs: DMNs[],
+    Dataypes: DataType[]
 }

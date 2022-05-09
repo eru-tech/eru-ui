@@ -1,0 +1,175 @@
+<table>
+  <col style="width: 50%" />
+  <col style="width: 20%" />
+  <col style="width: 20%" />
+  <col style="width: 10%" />
+  <tbody>
+    <ng-container *ngFor="let level1Data of dataSource; index as level1">
+      <tr>
+        <td
+          style="padding-left: 6em"
+          appTableInput
+          [(data)]="level1Data.name"
+          (dataChange)="dataChange()"
+          [editEnable]="getEditEnabled(level1Data)"
+          [showDrop]="level1Data.dataTypes.length > 0"
+          [(dropClicked)]="level1Data.isExpanded"
+          type="text">
+        </td>
+        <td
+          appTableInput
+          [(data)]="level1Data.type"
+          (dataChange)="dataChange()"
+          [editEnable]="getEditEnabled(level1Data)"
+          [customOptions]="getCustomOptions(dataSource, level1)"
+          type="select">
+        </td>
+        <td>{{ level1Data.constraints }}</td>
+        <td>
+          <mat-icon
+            *ngIf="level1Data.type === 'Object'"
+            (click)="addRow([level1])">
+              add_circle_outline
+          </mat-icon>
+        </td>
+      </tr>
+
+      <ng-template
+        [ngIf]="level1Data.dataTypes.length > 0 && level1Data.isExpanded">
+        <ng-container
+          *ngFor="let level2Data of level1Data.dataTypes; index as level2">
+          <tr>
+            <td
+              style="padding-left: 10.5em"
+              appTableInput
+              [(data)]="level2Data.name"
+              (dataChange)="dataChange()"
+              [editEnable]="getEditEnabled(level2Data)"
+              [showDrop]="level2Data.dataTypes.length > 0"
+              [(dropClicked)]="level2Data.isExpanded"
+              type="text">
+            </td>
+            <td
+              appTableInput
+              [(data)]="level2Data.type"
+              (dataChange)="dataChange()"
+              [editEnable]="getEditEnabled(level2Data)"
+              [customOptions]="getCustomOptions(level1Data.dataTypes, level2)"
+              type="select">
+            </td>
+            <td>{{ level2Data.constraints }}</td>
+            <td>
+              <mat-icon
+                *ngIf="level2Data.type === 'Object'"
+                (click)="addRow([level1, level2])">
+                add_circle_outline
+              </mat-icon>
+            </td>
+          </tr>
+
+          <ng-template
+            [ngIf]="level2Data.dataTypes.length > 0 && level2Data.isExpanded">
+            <ng-container
+              *ngFor="let level3Data of level2Data.dataTypes; index as level3">
+              <tr>
+                <td
+                  style="padding-left: 15em"
+                  appTableInput
+                  [(data)]="level3Data.name"
+                  (dataChange)="dataChange()"
+                  [editEnable]="getEditEnabled(level3Data)"
+                  [showDrop]="level3Data.dataTypes.length > 0"
+                  [(dropClicked)]="level3Data.isExpanded"
+                  type="text">
+                </td>
+                <td
+                  appTableInput
+                  [(data)]="level3Data.type"
+                  (dataChange)="dataChange()"
+                  [editEnable]="getEditEnabled(level3Data)"
+                  [customOptions]="getCustomOptions(level2Data.dataTypes, level3)"
+                  type="select">
+                </td>
+                <td>{{ level3Data.constraints }}</td>
+                <td>
+                  <mat-icon
+                    *ngIf="level3Data.type === 'Object'"
+                    (click)="addRow([level1, level2, level3])">
+                      add_circle_outline
+                  </mat-icon>
+                </td>
+              </tr>
+
+              <ng-template
+                [ngIf]="level3Data.dataTypes.length > 0 && level3Data.isExpanded">
+                <ng-container
+                  *ngFor="let level4Data of level3Data.dataTypes; index as level4">
+                  <tr>
+                    <td
+                      style="padding-left: 19.5em"
+                      appTableInput
+                      [(data)]="level4Data.name"
+                      (dataChange)="dataChange()"
+                      [editEnable]="getEditEnabled(level4Data)"
+                      [showDrop]="level4Data.dataTypes.length > 0"
+                      [(dropClicked)]="level4Data.isExpanded"
+                      type="text">
+                    </td>
+                    <td
+                      appTableInput
+                      [(data)]="level4Data.type"
+                      (dataChange)="dataChange()"
+                      [editEnable]="getEditEnabled(level4Data)"
+                      [customOptions]="getCustomOptions(level3Data.dataTypes, level4)"
+                      type="select">
+                    </td>
+                    <td>{{ level4Data.constraints }}</td>
+                    <td>
+                      <mat-icon
+                        *ngIf="level4Data.type === 'Object'"
+                        (click)="addRow([level1, level2, level3, level4])">
+                        add_circle_outline
+                      </mat-icon>
+                    </td>
+                  </tr>
+
+                  <ng-template
+                    [ngIf]="level4Data.dataTypes.length > 0 && level4Data.isExpanded">
+                    <ng-container
+                      *ngFor="let level5Data of level4Data.dataTypes;index as level5">
+                      <tr>
+                        <td
+                          style="padding-left: 23em"
+                          appTableInput
+                          [(data)]="level5Data.name"
+                          (dataChange)="dataChange()"
+                          [editEnable]="getEditEnabled(level5Data)"
+                          [showDrop]="level5Data.dataTypes.length > 0"
+                          [(dropClicked)]="level5Data.isExpanded"
+                          type="text">
+                        </td>
+                        <td
+                          appTableInput
+                          [(data)]="level5Data.type"
+                          (dataChange)="dataChange()"
+                          [editEnable]="getEditEnabled(level5Data)"
+                          [customOptions]="getCustomOptions(level4Data.dataTypes, level5)"
+                          type="select">
+                        </td>
+                        <td>{{ level5Data.constraints }}</td>
+                        <td></td>
+                      </tr>
+                    </ng-container>
+                  </ng-template>
+                </ng-container>
+              </ng-template>
+            </ng-container>
+          </ng-template>
+        </ng-container>
+      </ng-template>
+    </ng-container>
+  </tbody>
+</table>
+<button class="add-data-model" mat-fab color="accent" (click)="addRow([])">
+  <mat-icon>add</mat-icon>
+</button>

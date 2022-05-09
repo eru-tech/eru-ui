@@ -1,23 +1,30 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
-import { MatButtonModule } from "@angular/material/button";
-import { MatDialogModule } from "@angular/material/dialog";
+import { MaterialModule } from "../material.module";
 import { DeleteDailogComponent } from "./delete-dailog/delete-dailog.component";
 import {
   AutofocusDirective,
   InlineInputComponent,
 } from "./inline-input/inline-input.component";
 import { InitialsPipe } from "./pipes/initials.pipe";
-
+import { HeaderComponent } from "./header/header.component";
 @NgModule({
   declarations: [
     DeleteDailogComponent,
     InlineInputComponent,
     InitialsPipe,
     AutofocusDirective,
+    HeaderComponent,
   ],
-  imports: [FormsModule, MatDialogModule, MatButtonModule, CommonModule],
-  exports: [DeleteDailogComponent, InlineInputComponent, InitialsPipe, CommonModule],
+  imports: [FormsModule, CommonModule, MaterialModule],
+  exports: [
+    DeleteDailogComponent,
+    InlineInputComponent,
+    InitialsPipe,
+    CommonModule,
+    MaterialModule,
+    HeaderComponent,
+  ],
 })
 export class SharedModule {}

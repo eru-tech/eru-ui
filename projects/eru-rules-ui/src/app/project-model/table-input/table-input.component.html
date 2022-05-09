@@ -1,0 +1,42 @@
+<div class="table-cell">
+  <mat-icon *ngIf="showDrop" [ngClass]="isClicked ? 'rotate' : ''" class="drop-icon" (click)="dropDownClicked()" svgIcon="eru-drop"></mat-icon>
+  <div *ngIf="!editMode" (click)="inputToggle()" class="table-text">
+    {{ data }}
+  </div>
+  <mat-form-field
+    *ngIf="editMode && type === 'text'"
+    color="accent"
+    appearance="legacy">
+    <mat-label></mat-label>
+    <input
+      matInput
+      #input
+      color="accent"
+      [formControl]="inputControl"
+      (focusout)="onFocusOut()"
+      (keydown.enter)="blur($event)"
+      type="text"/>
+    <mat-error *ngIf="inputControl.hasError('required')">Name is required</mat-error>
+  </mat-form-field>
+  <mat-form-field
+    *ngIf="editMode && type === 'select'"
+    color="accent"
+    appearance="legacy">
+    <mat-label></mat-label>
+    <mat-select
+      #select
+      focused
+      (selectionChange)="onFocusOut()"
+      (keydown.enter)="blur($event)"
+      [formControl]="inputControl">
+      <mat-option *ngFor="let option of options" [value]="option">
+        {{option}}
+      </mat-option>
+      <mat-divider></mat-divider>
+      <mat-option *ngFor="let option of customOptions" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="inputControl.hasError('required')">Name is required</mat-error>
+  </mat-form-field>
+</div>

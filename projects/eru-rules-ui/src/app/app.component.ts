@@ -34,5 +34,6 @@ export class AppComponent {
     .addSvgIcon("eru-dmn-decision", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/eru-dmn-decision.svg"))
     .addSvgIcon("eru-dmn-text", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/eru-dmn-text.svg"))
     .addSvgIcon("eru-dmn-service", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/eru-dmn-service.svg"))
+    .addSvgIcon("eru-drop", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/eru-drop.svg"));
   }
 }

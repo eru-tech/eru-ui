@@ -1,4 +1,4 @@
-<app-header [selectedModel]="_selectedModel"></app-header>
+<app-header [selectedModel]="_selectedModel" [versions]="versions" actionButtonMesssage="SHARE" (actionButtonClicked)="actionButtonClicked()"></app-header>
 <mat-tab-group color="accent" dynamicHeight>
     <mat-tab label="Decision Diagram">
         <app-canvas></app-canvas>
