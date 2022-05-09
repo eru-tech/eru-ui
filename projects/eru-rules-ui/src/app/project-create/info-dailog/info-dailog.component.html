@@ -1,0 +1,31 @@
+<div class="title">Properties</div>
+<div class="subtitle">Properties</div>
+<div mat-dialog-content>
+    <form [formGroup]="inputForm">
+        <mat-form-field class="form-fields" color="accent" appearance="legacy" hideRequiredMarker>
+            <mat-label></mat-label>
+            <input
+                matInput
+                placeholder="Enter Name"
+                color="accent"
+                formControlName="name"
+                type="text"/>
+            <mat-error *ngIf="inputForm.get('name')?.hasError('required')">Name is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-fields" color="accent" appearance="legacy" hideRequiredMarker>
+            <mat-label></mat-label>
+            <mat-select  color="accent" formControlName="dataType">
+                <mat-option *ngFor="let option of dataTypes" [value]="option.name">
+                    {{option.name}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="inputForm.get('dataType')?.hasError('required')">Name is required</mat-error>
+        </mat-form-field>
+
+    </form>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-stroked-button (click)="onClose()" color="accent">Cancel</button>
+  <button mat-raised-button [disabled]="!inputForm.valid" (click)="saveForm()" color="warn" [mat-dialog-close]="true" cdkFocusInitial>Yes</button>
+</div>

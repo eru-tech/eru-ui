@@ -1,7 +1,7 @@
 <app-header [selectedModel]="_selectedModel" [versions]="versions" actionButtonMesssage="SHARE" (actionButtonClicked)="actionButtonClicked()"></app-header>
 <mat-tab-group color="accent" dynamicHeight>
     <mat-tab label="Decision Diagram">
-        <app-canvas></app-canvas>
+        <app-canvas [selectedProject]="selectedProject"></app-canvas>
     </mat-tab>
     <mat-tab label="Decision Graph"> Content 2 </mat-tab>
     <mat-tab label="Decision Components"> Content 3 </mat-tab>

@@ -1,4 +1,4 @@
-export interface DataType{
+export interface DataType {
     name: string,
     type: string,
     constraints: string,

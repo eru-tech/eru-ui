@@ -27,7 +27,7 @@ export function ProjectListingReducers(
               dmnName: "Model 1",
               createdBy: "user 1",
               lastUpdateDate: "2022-04-16T13:44:40.036158495Z",
-              version: 2.1
+              version: 2.1,
             },
             {
               dmnName: "Model 2",
@@ -36,6 +36,7 @@ export function ProjectListingReducers(
               version: 3
             }
           ],
+          Dataypes: []
         },
         {
           ProjectId: "MyProject1",
@@ -53,6 +54,7 @@ export function ProjectListingReducers(
               version: 1.2,
             }
           ],
+          Dataypes: []
         },
         {
           ProjectId: "MyProject2",
@@ -70,6 +72,7 @@ export function ProjectListingReducers(
               version: 2,
             }
           ],
+          Dataypes: []
         }
       ];
       return {

@@ -4,8 +4,8 @@ import { ProjectModelRoutingModule } from './project-model-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TableInputComponent } from './table-input/table-input.component';
 import { ProjectModelListingComponent } from './project-model-listing/project-model-listing.component';
-import { ProjectModalFooterComponent } from './project-modal-footer/project-modal-footer.component';
 import { SharedModule } from '../shared/shared.module';
+import { ModelHederComponent } from './model-heder/model-heder.component';
 
 
 
@@ -14,7 +14,7 @@ import { SharedModule } from '../shared/shared.module';
     ProjectModelComponent,
     TableInputComponent,
     ProjectModelListingComponent,
-    ProjectModalFooterComponent
+    ModelHederComponent,
   ],
   imports: [
     FormsModule,

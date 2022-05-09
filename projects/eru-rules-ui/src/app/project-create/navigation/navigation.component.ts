@@ -30,6 +30,7 @@ export class NavigationComponent implements OnInit {
           version: 1.2,
         },
       ],
+      Dataypes: []
     };
     if (this.projects.DMNs.length > 0) {
       this.selectedTab = this.projects.DMNs[0].dmnName;

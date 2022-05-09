@@ -1,0 +1,21 @@
+<div class="header">
+    <div *ngIf="selectedProject" class="info">
+    <div class="text">{{ selectedProject.projectName }}</div>
+    <p>
+        <label class="label">Version :</label>
+        <select *ngIf="versions && versions.length > 0" class="value" [(ngModel)]="versions[0]">
+          <option>Select a version</option>
+          <option *ngFor="let version of versions" [value]="version">
+            {{ version }}
+          </option>
+        </select>
+        <span class="value"><span class="label"> Last Edited</span> :
+          {{ selectedProject.lastUpdateDate | date: "d MMM y, h:mm a" }}</span
+        >
+      </p>
+    </div>
+    <button *ngIf="actionButtonMesssage" (click)="actionButtonClick()" mat-raised-button color="accent">
+      {{actionButtonMesssage}}
+    </button>
+</div>
+  

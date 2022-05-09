@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProjectModalFooterComponent } from './project-modal-footer.component';
+import { ModelHederComponent } from './model-heder.component';
 
-describe('ProjectModalFooterComponent', () => {
-  let component: ProjectModalFooterComponent;
-  let fixture: ComponentFixture<ProjectModalFooterComponent>;
+describe('ModelHederComponent', () => {
+  let component: ModelHederComponent;
+  let fixture: ComponentFixture<ModelHederComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProjectModalFooterComponent ]
+      declarations: [ ModelHederComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProjectModalFooterComponent);
+    fixture = TestBed.createComponent(ModelHederComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

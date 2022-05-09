@@ -1,0 +1,46 @@
+.title {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 45px;
+}
+
+.subtitle {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 26px;
+}
+.mat-dialog-content{
+  height: 100%;
+}
+
+.mat-dialog-actions {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  // justify-content: flex-end;
+}
+
+button {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 20px;
+}
+
+:host ::ng-deep .mat-input-element,
+:host ::ng-deep .mat-select-value  {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.form-fields{
+  width: 100%;
+  margin-bottom: 20px;
+}

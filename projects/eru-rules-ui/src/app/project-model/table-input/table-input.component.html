@@ -6,7 +6,8 @@
   <mat-form-field
     *ngIf="editMode && type === 'text'"
     color="accent"
-    appearance="legacy">
+    appearance="legacy"
+    hideRequiredMarker>
     <mat-label></mat-label>
     <input
       matInput
@@ -28,7 +29,8 @@
       focused
       (selectionChange)="onFocusOut()"
       (keydown.enter)="blur($event)"
-      [formControl]="inputControl">
+      [formControl]="inputControl"
+      hideRequiredMarker>
       <mat-option *ngFor="let option of options" [value]="option">
         {{option}}
       </mat-option>

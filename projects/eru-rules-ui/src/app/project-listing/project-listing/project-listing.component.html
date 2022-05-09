@@ -34,6 +34,7 @@
           <td>{{ project.lastUpdateDate | date: "short" }}</td>
           <td>
             <div class="actions">
+              <mat-icon svgIcon="eru-model" [routerLink]="['/data-type', project.projectName]"></mat-icon>
               <mat-icon svgIcon="eru-edit"></mat-icon>
               <mat-icon svgIcon="eru-export"></mat-icon>
               <mat-icon svgIcon="eru-download"></mat-icon>

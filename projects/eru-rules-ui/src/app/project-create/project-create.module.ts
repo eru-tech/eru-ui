@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { ProjectCreateComponent } from "./project-create/project-create.component";
 import { CanvasComponent } from "./canvas/canvas.component";
@@ -19,6 +19,7 @@ import { InfoDailogComponent } from './info-dailog/info-dailog.component';
   imports: [
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     ProjectCreateRoutingModule,
     SharedModule,
   ],
