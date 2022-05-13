@@ -3,5 +3,5 @@ export interface DataType {
     type: string,
     constraints: string,
     isExpanded : boolean,
-    dataTypes: DataType[]
+    dataTypes: DataType[],
 }
