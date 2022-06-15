@@ -35,6 +35,7 @@ export class AppComponent {
     .addSvgIcon("eru-dmn-text", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/eru-dmn-text.svg"))
     .addSvgIcon("eru-dmn-service", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/eru-dmn-service.svg"))
     .addSvgIcon("eru-drop", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/eru-drop.svg"))
-    .addSvgIcon("eru-model", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/eru-model.svg"));
+    .addSvgIcon("eru-model", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/eru-model.svg"))
+    .addSvgIcon("eru-chat", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/eru-chat.svg"));
   }
 }
