@@ -120,7 +120,7 @@ $eru-rules-ui-accent: mat.define-palette($red-orange-palette, 500);
 // The warn palette is optional (defaults to red).
 $eru-rules-ui-warn: mat.define-palette($coral-red-palette, 500);
 $eru-typography: mat.define-typography-config(
-  $font-family: "Comic Sans"
+  $font-family: "Comic Sans",
 );
 
 // Create the theme object. A theme consists of configurations for individual
@@ -161,4 +161,16 @@ body {
 
 .mat-form-field-appearance-outline .mat-form-field-outline-thick {
   color: transparent;
+}
+
+.w-10 {
+  width: 10%;
+}
+
+.w-30 {
+  width: 30%;
+}
+
+.w-90 {
+  width: 90%;
 }

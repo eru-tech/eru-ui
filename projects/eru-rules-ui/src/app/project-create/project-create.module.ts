@@ -8,6 +8,11 @@ import { NavigationComponent } from "./navigation/navigation.component";
 import { ProjectCreateRoutingModule } from "./project-create-routing.module";
 import { SharedModule } from "../shared/shared.module";
 import { InfoDailogComponent } from './info-dailog/info-dailog.component';
+import { ContextComponent } from './context/context.component';
+import { DecisionComponent } from './decision/decision.component';
+import { RelationComponent } from './relation/relation.component';
+import { FunctionComponent } from './function/function.component';
+import { ListComponent } from './list/list.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +20,11 @@ import { InfoDailogComponent } from './info-dailog/info-dailog.component';
     CanvasComponent,
     NavigationComponent,
     InfoDailogComponent,
+    ContextComponent,
+    DecisionComponent,
+    RelationComponent,
+    FunctionComponent,
+    ListComponent,
   ],
   imports: [
     HttpClientModule,

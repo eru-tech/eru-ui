@@ -32,12 +32,6 @@ import { DeleteDailogComponent } from "../../shared/delete-dailog/delete-dailog.
 export class ProjectListingComponent
   implements OnInit, AfterViewInit, OnDestroy
 {
-  displayedColumns: string[] = [
-    "projectName",
-    "ownedBy",
-    "lastEdited",
-    "actions",
-  ];
   resultsLength = 0;
   isLoadingResults = true;
   isRateLimitReached = false;
@@ -122,5 +116,9 @@ export class ProjectListingComponent
         this.store.dispatch(new DeleteProject(projectName));
       }
     });
+  }
+
+  openProject(item : DMNs) {
+    
   }
 }

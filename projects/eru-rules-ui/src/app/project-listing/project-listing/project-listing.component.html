@@ -46,7 +46,7 @@
         </tr>
         <ng-container *ngIf="!this.showLoader && this.currentIndex === i && this.currentDMNList.length > 0">
             <tr *ngFor="let item of this.currentDMNList">
-                <td><mat-icon svgIcon="eru-enter" class="sub-project"></mat-icon>{{item.dmnName}}</td>
+                <td><mat-icon svgIcon="eru-enter" class="sub-project"></mat-icon><span (click)="openProject(item)">{{item.dmnName}}</span></td>
                 <td><div class="user-icon">{{ item.createdBy | initials }}</div></td>
                 <td>{{item.lastUpdateDate | date: "short"}}</td>
                 <td></td>

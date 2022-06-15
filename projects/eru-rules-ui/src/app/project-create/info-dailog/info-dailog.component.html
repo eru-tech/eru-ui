@@ -1,31 +1,52 @@
-<div class="title">Properties</div>
-<div class="subtitle">Properties</div>
+<div class="title">{{title}}</div>
+<div class="subtitle">{{subtitle}}</div>
 <div mat-dialog-content>
-    <form [formGroup]="inputForm">
-        <mat-form-field class="form-fields" color="accent" appearance="legacy" hideRequiredMarker>
-            <mat-label></mat-label>
+    <form [formGroup]="form">
+        <mat-form-field *ngIf="data.shape === 'input'" class="form-fields" color="accent" appearance="legacy" hideRequiredMarker>
+            <mat-label>Name</mat-label>
             <input
                 matInput
-                placeholder="Enter Name"
+                placeholder="Enter Name of input"
                 color="accent"
                 formControlName="name"
                 type="text"/>
-            <mat-error *ngIf="inputForm.get('name')?.hasError('required')">Name is required</mat-error>
+            <mat-error *ngIf="form.get('name')?.hasError('required')">Name is required</mat-error>
         </mat-form-field>
 
-        <mat-form-field class="form-fields" color="accent" appearance="legacy" hideRequiredMarker>
-            <mat-label></mat-label>
+        <mat-form-field *ngIf="data.shape === 'input'" class="form-fields" color="accent" appearance="legacy" hideRequiredMarker>
+            <mat-label>Select Data Type</mat-label>
             <mat-select  color="accent" formControlName="dataType">
-                <mat-option *ngFor="let option of dataTypes" [value]="option.name">
-                    {{option.name}}
+                <mat-option *ngFor="let option of dataTypes" [value]="option.Name">
+                    {{option.Name}}
                 </mat-option>
             </mat-select>
-            <mat-error *ngIf="inputForm.get('dataType')?.hasError('required')">Name is required</mat-error>
+            <mat-error *ngIf="form.get('dataType')?.hasError('required')">Data type is required</mat-error>
         </mat-form-field>
+
+        <mat-form-field *ngIf="data.shape === 'decision'" class="form-fields" color="accent" appearance="legacy" hideRequiredMarker>
+            <mat-label>Select Logiv Type</mat-label>
+            <mat-select  color="accent" formControlName="select_logic_type">
+                <mat-option *ngFor="let option of decisionOptions" [value]="option">
+                    {{option}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="form.get('select_logic_type')?.hasError('required')">Logic type is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field *ngIf="data.shape === 'decision' && form.get('select_logic_type')?.value === 'Literal Expression'" class="form-fields" color="accent" appearance="legacy" hideRequiredMarker>
+            <mat-label>Enter literal expression</mat-label>
+            <input type="text" matInput formControlName="literal_expression">
+            <mat-error *ngIf="form.get('literal_expression')?.hasError('required')">Literal expression is is required</mat-error>
+        </mat-form-field>
+        <app-context *ngIf="data.shape === 'decision' && form.get('select_logic_type')?.value === 'Context'"></app-context>
+        <app-decision Table *ngIf="data.shape === 'decision' && form.get('select_logic_type')?.value === 'Decision Table'"></app-decision>
+        <app-relation Table *ngIf="data.shape === 'decision' && form.get('select_logic_type')?.value === 'Relation'"></app-relation>
+        <app-function Table *ngIf="data.shape === 'decision' && form.get('select_logic_type')?.value === 'Function'"></app-function>
+        <app-list Table *ngIf="data.shape === 'decision' && form.get('select_logic_type')?.value === 'List'"></app-list>
 
     </form>
 </div>
 <div mat-dialog-actions align="end">
   <button mat-stroked-button (click)="onClose()" color="accent">Cancel</button>
-  <button mat-raised-button [disabled]="!inputForm.valid" (click)="saveForm()" color="warn" [mat-dialog-close]="true" cdkFocusInitial>Save</button>
+  <button mat-raised-button [disabled]="!form.valid" (click)="saveForm()" color="warn" [mat-dialog-close]="true" cdkFocusInitial>Save</button>
 </div>
