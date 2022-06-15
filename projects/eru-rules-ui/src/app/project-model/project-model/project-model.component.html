@@ -1,33 +1,46 @@
 <table>
   <col style="width: 50%" />
-  <col style="width: 20%" />
-  <col style="width: 20%" />
+  <col style="width: 15%" />
   <col style="width: 10%" />
+  <col style="width: 20%" />
+  <col style="width: 5%" />
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Tyoe</th>
+      <th>Is Array</th>
+      <th>Constraints</th>
+      <th>Actions</th> 
+    </tr>   
+  </thead>
   <tbody>
     <ng-container *ngFor="let level1Data of dataSource; index as level1">
       <tr>
         <td
           style="padding-left: 6em"
           appTableInput
-          [(data)]="level1Data.name"
+          [(data)]="level1Data.Name"
           (dataChange)="dataChange()"
           [editEnable]="getEditEnabled(level1Data)"
-          [showDrop]="level1Data.dataTypes.length > 0"
-          [(dropClicked)]="level1Data.isExpanded"
+          [showDrop]="level1Data.SubDataTypes.length > 0"
+          [(dropClicked)]="level1Data.IsExpanded"
           type="text">
         </td>
         <td
           appTableInput
-          [(data)]="level1Data.type"
+          [(data)]="level1Data.Type"
           (dataChange)="dataChange()"
           [editEnable]="getEditEnabled(level1Data)"
           [customOptions]="getCustomOptions(dataSource, level1)"
           type="select">
         </td>
-        <td>{{ level1Data.constraints }}</td>
+        <td>  
+          <mat-checkbox color="accent" [(ngModel)]="level1Data.IsArray" (change)="dataChange()"></mat-checkbox>
+        </td>
+        <td><mat-icon *ngIf="!level1Data.Constraints" svgIcon="eru-chat"></mat-icon>{{ level1Data.Constraints }}</td>
         <td>
           <mat-icon
-            *ngIf="level1Data.type === 'Object'"
+            *ngIf="level1Data.Type === 'Object'"
             (click)="addRow([level1])">
               add_circle_outline
           </mat-icon>
@@ -35,32 +48,35 @@
       </tr>
 
       <ng-template
-        [ngIf]="level1Data.dataTypes.length > 0 && level1Data.isExpanded">
+        [ngIf]="level1Data.SubDataTypes.length > 0 && level1Data.IsExpanded">
         <ng-container
-          *ngFor="let level2Data of level1Data.dataTypes; index as level2">
+          *ngFor="let level2Data of level1Data.SubDataTypes; index as level2">
           <tr>
             <td
               style="padding-left: 10.5em"
               appTableInput
-              [(data)]="level2Data.name"
+              [(data)]="level2Data.Name"
               (dataChange)="dataChange()"
               [editEnable]="getEditEnabled(level2Data)"
-              [showDrop]="level2Data.dataTypes.length > 0"
-              [(dropClicked)]="level2Data.isExpanded"
+              [showDrop]="level2Data.SubDataTypes.length > 0"
+              [(dropClicked)]="level2Data.IsExpanded"
               type="text">
             </td>
             <td
               appTableInput
-              [(data)]="level2Data.type"
+              [(data)]="level2Data.Type"
               (dataChange)="dataChange()"
               [editEnable]="getEditEnabled(level2Data)"
-              [customOptions]="getCustomOptions(level1Data.dataTypes, level2)"
+              [customOptions]="getCustomOptions(level1Data.SubDataTypes, level2)"
               type="select">
             </td>
-            <td>{{ level2Data.constraints }}</td>
+            <td>
+              <mat-checkbox color="accent" [(ngModel)]="level2Data.IsArray" (change)="dataChange()"></mat-checkbox>
+            </td>
+            <td>{{ level2Data.Constraints }}</td>
             <td>
               <mat-icon
-                *ngIf="level2Data.type === 'Object'"
+                *ngIf="level2Data.Type === 'Object'"
                 (click)="addRow([level1, level2])">
                 add_circle_outline
               </mat-icon>
@@ -68,32 +84,35 @@
           </tr>
 
           <ng-template
-            [ngIf]="level2Data.dataTypes.length > 0 && level2Data.isExpanded">
+            [ngIf]="level2Data.SubDataTypes.length > 0 && level2Data.IsExpanded">
             <ng-container
-              *ngFor="let level3Data of level2Data.dataTypes; index as level3">
+              *ngFor="let level3Data of level2Data.SubDataTypes; index as level3">
               <tr>
                 <td
                   style="padding-left: 15em"
                   appTableInput
-                  [(data)]="level3Data.name"
+                  [(data)]="level3Data.Name"
                   (dataChange)="dataChange()"
                   [editEnable]="getEditEnabled(level3Data)"
-                  [showDrop]="level3Data.dataTypes.length > 0"
-                  [(dropClicked)]="level3Data.isExpanded"
+                  [showDrop]="level3Data.SubDataTypes.length > 0"
+                  [(dropClicked)]="level3Data.IsExpanded"
                   type="text">
                 </td>
                 <td
                   appTableInput
-                  [(data)]="level3Data.type"
+                  [(data)]="level3Data.Type"
                   (dataChange)="dataChange()"
                   [editEnable]="getEditEnabled(level3Data)"
-                  [customOptions]="getCustomOptions(level2Data.dataTypes, level3)"
+                  [customOptions]="getCustomOptions(level2Data.SubDataTypes, level3)"
                   type="select">
                 </td>
-                <td>{{ level3Data.constraints }}</td>
+                <td>
+                  <mat-checkbox color="accent" [(ngModel)]="level3Data.IsArray" (change)="dataChange()"></mat-checkbox>
+                </td>
+                <td>{{ level3Data.Constraints }}</td>
                 <td>
                   <mat-icon
-                    *ngIf="level3Data.type === 'Object'"
+                    *ngIf="level3Data.Type === 'Object'"
                     (click)="addRow([level1, level2, level3])">
                       add_circle_outline
                   </mat-icon>
@@ -101,32 +120,35 @@
               </tr>
 
               <ng-template
-                [ngIf]="level3Data.dataTypes.length > 0 && level3Data.isExpanded">
+                [ngIf]="level3Data.SubDataTypes.length > 0 && level3Data.IsExpanded">
                 <ng-container
-                  *ngFor="let level4Data of level3Data.dataTypes; index as level4">
+                  *ngFor="let level4Data of level3Data.SubDataTypes; index as level4">
                   <tr>
                     <td
                       style="padding-left: 19.5em"
                       appTableInput
-                      [(data)]="level4Data.name"
+                      [(data)]="level4Data.Name"
                       (dataChange)="dataChange()"
                       [editEnable]="getEditEnabled(level4Data)"
-                      [showDrop]="level4Data.dataTypes.length > 0"
-                      [(dropClicked)]="level4Data.isExpanded"
+                      [showDrop]="level4Data.SubDataTypes.length > 0"
+                      [(dropClicked)]="level4Data.IsExpanded"
                       type="text">
                     </td>
                     <td
                       appTableInput
-                      [(data)]="level4Data.type"
+                      [(data)]="level4Data.Type"
                       (dataChange)="dataChange()"
                       [editEnable]="getEditEnabled(level4Data)"
-                      [customOptions]="getCustomOptions(level3Data.dataTypes, level4)"
+                      [customOptions]="getCustomOptions(level3Data.SubDataTypes, level4)"
                       type="select">
                     </td>
-                    <td>{{ level4Data.constraints }}</td>
+                    <td>
+                      <mat-checkbox color="accent" [(ngModel)]="level4Data.IsArray" (change)="dataChange()"></mat-checkbox>
+                    </td>
+                    <td>{{ level4Data.Constraints }}</td>
                     <td>
                       <mat-icon
-                        *ngIf="level4Data.type === 'Object'"
+                        *ngIf="level4Data.Type === 'Object'"
                         (click)="addRow([level1, level2, level3, level4])">
                         add_circle_outline
                       </mat-icon>
@@ -134,29 +156,32 @@
                   </tr>
 
                   <ng-template
-                    [ngIf]="level4Data.dataTypes.length > 0 && level4Data.isExpanded">
+                    [ngIf]="level4Data.SubDataTypes.length > 0 && level4Data.IsExpanded">
                     <ng-container
-                      *ngFor="let level5Data of level4Data.dataTypes;index as level5">
+                      *ngFor="let level5Data of level4Data.SubDataTypes;index as level5">
                       <tr>
                         <td
                           style="padding-left: 23em"
                           appTableInput
-                          [(data)]="level5Data.name"
+                          [(data)]="level5Data.Name"
                           (dataChange)="dataChange()"
                           [editEnable]="getEditEnabled(level5Data)"
-                          [showDrop]="level5Data.dataTypes.length > 0"
-                          [(dropClicked)]="level5Data.isExpanded"
+                          [showDrop]="level5Data.SubDataTypes.length > 0"
+                          [(dropClicked)]="level5Data.IsExpanded"
                           type="text">
                         </td>
                         <td
                           appTableInput
-                          [(data)]="level5Data.type"
+                          [(data)]="level5Data.Type"
                           (dataChange)="dataChange()"
                           [editEnable]="getEditEnabled(level5Data)"
-                          [customOptions]="getCustomOptions(level4Data.dataTypes, level5)"
+                          [customOptions]="getCustomOptions(level4Data.SubDataTypes, level5)"
                           type="select">
                         </td>
-                        <td>{{ level5Data.constraints }}</td>
+                        <td>
+                          <mat-checkbox color="accent" [(ngModel)]="level5Data.IsArray" (change)="dataChange()"></mat-checkbox>
+                        </td>
+                        <td>{{ level5Data.Constraints }}</td>
                         <td></td>
                       </tr>
                     </ng-container>

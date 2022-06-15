@@ -9,6 +9,26 @@ table {
   width: 100%;
   border-collapse: separate !important;
   border-spacing: 0;
+  > thead {
+    > tr {
+      padding-top: 3px;
+      padding-bottom: 3px;
+      > :first-child {
+        padding-left: 35px;
+      }
+      > :last-child {
+        padding-right: 35px;
+      }
+      > th {
+        border-bottom: none !important;
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 23px;
+        color: #000000;
+      }
+    }
+  }
   > tbody {
       height: 100%;
     > tr {

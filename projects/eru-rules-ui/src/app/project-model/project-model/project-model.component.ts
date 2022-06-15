@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef, ViewChild } from "@angular/core";
+import { Component, EventEmitter, Input, OnInit, Output, TemplateRef } from "@angular/core";
 import { DataType } from "../../models/data-type.model";
 
 @Component({
@@ -7,44 +7,15 @@ import { DataType } from "../../models/data-type.model";
   styleUrls: ["./project-model.component.scss"],
 })
 export class ProjectModelComponent implements OnInit {
-  dataSource: DataType[] = [
-    {
-      name: "Mehta",
-      type: "Object",
-      constraints: "[10-20]",
-      isExpanded: false,
-      dataTypes: [
-        {
-          name: "Narendra",
-          type: "Object",
-          constraints: "[10-20]",
-          isExpanded: false,
-          dataTypes: [
-            {
-              name: "Rekha",
-              type: "String",
-              constraints: "[10-20]",
-              isExpanded: false,
-              dataTypes: [],
-            },
-          ],
-        },
-      ],
-    },
-    {
-      name: "Mehta",
-      type: "String",
-      constraints: "[10-20]",
-      isExpanded: false,
-      dataTypes: [],
-    },
-  ];
+  @Input() dataSource: DataType[] = [];
+  @Output() dataSourceChange : EventEmitter<DataType[]> = new EventEmitter<DataType[]>();
   dummyElement: DataType = {
-    name: "Please Change Name",
-    type: "Any",
-    constraints: "",
-    isExpanded: false,
-    dataTypes: [],
+    Name: "Please Change Name",
+    Type: "Any",
+    Constraints: "",
+    IsExpanded: false,
+    IsArray: false,
+    SubDataTypes: [],
   };
   options = [
     "Object",
@@ -78,43 +49,47 @@ export class ProjectModelComponent implements OnInit {
   }
 
   addRow(data: number[]) {
-    switch (data.length) {
-      case 1:
-        this.dataSource[data[0]].isExpanded = true;
-        this.dataSource[data[0]].dataTypes.push(this.dummyElement);
-        break;
-      case 2:
-        this.dataSource[data[0]].dataTypes[data[1]].isExpanded = true;
-        this.dataSource[data[0]].dataTypes[data[1]].dataTypes.push(
-          this.dummyElement
-        );
-        break;
-      case 3:
-        this.dataSource[data[0]].dataTypes[data[1]].dataTypes[
-          data[2]
-        ].isExpanded = true;
-        this.dataSource[data[0]].dataTypes[data[1]].dataTypes[
-          data[2]
-        ].dataTypes.push(this.dummyElement);
-        break;
-      case 4:
-        this.dataSource[data[0]].dataTypes[data[1]].dataTypes[
-          data[2]
-        ].dataTypes[data[3]].isExpanded = true;
-        this.dataSource[data[0]].dataTypes[data[1]].dataTypes[
-          data[2]
-        ].dataTypes[data[3]].dataTypes.push(this.dummyElement);
-        break;
-      default:
-        this.dataSource.push(this.dummyElement);
-        break;
-    }
+    if(this.dataSource.length > 0){
+      switch (data.length) {
+        case 1:
+          this.dataSource[data[0]].IsExpanded = true;
+          this.dataSource[data[0]].SubDataTypes.push(this.dummyElement);
+          break;
+        case 2:
+          this.dataSource[data[0]].SubDataTypes[data[1]].IsExpanded = true;
+          this.dataSource[data[0]].SubDataTypes[data[1]].SubDataTypes.push(
+            this.dummyElement
+          );
+          break;
+        case 3:
+          this.dataSource[data[0]].SubDataTypes[data[1]].SubDataTypes[
+            data[2]
+          ].IsExpanded = true;
+          this.dataSource[data[0]].SubDataTypes[data[1]].SubDataTypes[
+            data[2]
+          ].SubDataTypes.push(this.dummyElement);
+          break;
+        case 4:
+          this.dataSource[data[0]].SubDataTypes[data[1]].SubDataTypes[
+            data[2]
+          ].SubDataTypes[data[3]].IsExpanded = true;
+          this.dataSource[data[0]].SubDataTypes[data[1]].SubDataTypes[
+            data[2]
+          ].SubDataTypes[data[3]].SubDataTypes.push(this.dummyElement);
+          break;
+        default:
+          this.dataSource.push(this.dummyElement);
+          break;
+      }
+    } 
   }
 
-  dataChange() {}
+  dataChange() {
+    this.dataSourceChange.emit(this.dataSource);
+  }
 
   getEditEnabled(data: DataType): boolean {
-    if (data.name === "Please Change Name" && data.type === "Any") {
+    if (data.Name === "Please Change Name" && data.Type === "Any") {
       return true;
     } else {
       return false;
@@ -126,9 +101,9 @@ export class ProjectModelComponent implements OnInit {
     data.forEach((element, i) => {
       if (
         (i !== index) &&
-        (!this.options.includes(element.type) || element.type === "Object")
+        (!this.options.includes(element.Type) || element.Type === "Object")
       ) {
-        customDataTypes.push(element.name);
+        customDataTypes.push(element.Name);
       }
     });
     return customDataTypes;

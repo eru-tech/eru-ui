@@ -1,2 +1,2 @@
 <app-model-heder [selectedProject]="selectedProject" actionButtonMesssage="SHARE" (actionButtonClicked)="actionButtonClicked()"></app-model-heder>
-<app-project-model></app-project-model>
+<app-project-model [dataSource]="dataTypes" (dataSourceChange)="handleChange($event)"></app-project-model>
